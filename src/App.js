@@ -1,10 +1,12 @@
 import './App.css';
 import { useQuery } from '@apollo/client';
-import { BOOK } from './api/client';
+import { GET_BOOK } from './api/client';
 import Page from './components/Page';
+import { Route, Routes } from 'react-router-dom';
+import ViewToken from './components/ViewToken';
 
 function App() {
-  // const [loading, error, data] = useQuery(BOOK)
+  const {loading, error, data} = useQuery(GET_BOOK)
   const page = {
     content: "We slipped into the car and closed the doors quietly and off we went. “Look at those streetlamps,” my father said, “glowing like tiny moons all in a row.”",
     tokens: [
@@ -19,7 +21,10 @@ function App() {
   }
   
   return (
-    <Page page={page}/>
+    <Routes>
+      <Route path='/' element={<Page page={page} />} />
+      <Route path='/token' element={<ViewToken />} />
+    </Routes>
   );
 }
 

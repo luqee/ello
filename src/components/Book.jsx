@@ -1,17 +1,24 @@
 import { useQuery } from "@apollo/client"
 import { useContext, useEffect, useState } from "react"
+import { useLocation } from "react-router-dom"
 import { GET_BOOK } from "../api/client"
 import { BookContext } from "../BookProvider"
 import Page from "./Page"
 
 function Book(){
-    const {book} = useContext(BookContext)
-    const [currentPage, setCurrentPage] = useState(0)
+    const {book, currentPage,  setCurrentPage} = useContext(BookContext)
     const [leftPage, setLeftPage] = useState(null)
     const [rightPage, setRightPage] = useState(null)
     const [prevDisabled, setPrevDisabled] = useState(false)
     const [nextDisabled, setNextDisabled] = useState(false)
+    const location = useLocation()
     
+    useEffect(()=>{
+        if (location.state) {
+            setCurrentPage(location.state.currentPage)
+        }
+    }, [])
+
     useEffect(()=>{
         if (book) {
             setLeftPage(book.pages[currentPage])

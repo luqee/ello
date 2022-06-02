@@ -6,10 +6,13 @@ export const BookContext = React.createContext({})
 
 function BookProvider({children}){
     const {loading, error, data} = useQuery(GET_BOOK)
+    const [currentPage, setCurrentPage] = useState(0)
     
     
     const value = {
-        book: data? data.book: null
+        book: data? data.book: null,
+        currentPage,
+        setCurrentPage: setCurrentPage,
     }
 
     return <BookContext.Provider value={value}>

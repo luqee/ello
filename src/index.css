@@ -33,5 +33,14 @@ div#pageContent {
 div#doublePage {
   display: flex;
   flex-direction: row;
+}
 
+div#ViewToken {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+div#Token {
+  font-size: 3em;
 }

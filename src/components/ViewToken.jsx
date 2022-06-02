@@ -6,11 +6,11 @@ function ViewToken({token}) {
     const location = useLocation()
     const {currentPage} = useContext(BookContext)
 
-    return (<div>
+    return (<div id="ViewToken">
         <div>
         <Link to={'/'} state={{currentPage}}><button>Back</button></Link>
         </div>
-        <div>
+        <div id="Token">
         {location.state? location.state.token: ''}
         </div>
     </div>)

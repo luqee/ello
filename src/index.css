@@ -12,6 +12,26 @@ code {
     monospace;
 }
 
-div#pageContent {
+div#Book {
+  padding-top: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+div#BookDetails{
+  margin-bottom: 1em;
   font-size: large;
+}
+
+div#pageContent {
+  font-size: 2em;
+  padding: 0.5em 3em;
+  flex: 1 1 0;
+}
+
+div#doublePage {
+  display: flex;
+  flex-direction: row;
+
 }

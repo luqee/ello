@@ -46,11 +46,20 @@ function Book(){
     }
     
     return (<div id="Book">
-        <button onClick={handlePrevious} disabled={prevDisabled}>Previous</button>
-        <button onClick={handleNext} disabled={nextDisabled}>Next</button>
-        <div>
-            <div><Page page={leftPage} /></div>
-            <div><Page page={rightPage} /></div>
+        {
+            book && (<div id="BookDetails">
+                Title: {book.title} <br/> <br/>
+                Author: {book.author}
+            </div>)
+        }
+        <div id="Navigation">
+            <button onClick={handlePrevious} disabled={prevDisabled}>Previous</button>
+            <button onClick={handleNext} disabled={nextDisabled}>Next</button>
+        </div>
+        <div id="doublePage">
+            <Page page={leftPage} />
+            <hr/>
+            <Page page={rightPage} />
         </div>
     </div>)
 }
